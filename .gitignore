@@ -1,0 +1,6 @@
+node_modules/
+.env
+client/bower_components
+client/dist
+*.log
+npm-debug.log*
