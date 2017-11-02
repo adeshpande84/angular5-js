@@ -7,8 +7,8 @@ import {Component} from '@angular/core';
 
 class AppComponent {
 	constructor() {
-		this.title = 'App Root Component';
-		this.description = 'Angular 4 App created with ES6, Babel, Webpack. This app does not use typescript';
+		this.title = 'Root Component';
+		this.description = '';
 	}
 }
 
