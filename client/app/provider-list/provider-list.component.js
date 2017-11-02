@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
 class ProviderListComponent {
 	constructor() {
 		this.title = 'Provider List Component';
+		this.searchText = '';
 		this.providers = [
 			{
 				npi: 'npi123',
@@ -15,7 +16,7 @@ class ProviderListComponent {
 				address: '123 Test NE Albuquerque NM 87113'
 			},
 			{
-				npi: 'npi135',
+				npi: 'npi123',
 				name: 'Provider 2',
 				address: '222 San Mateo NE Albuquerque NM 87109'
 			},
@@ -30,7 +31,7 @@ class ProviderListComponent {
 				address: '290 Alameda Albuquerque NM 87113'
 			},
 			{
-				npi: 'npi175',
+				npi: 'npi162',
 				name: 'Provider 1',
 				address: '727 Tramway NE Albuquerque NM 87122'
 			}
