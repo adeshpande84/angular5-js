@@ -14,10 +14,12 @@
 	</thead>
 	<tbody>
 		
-		<tr *ngFor="let provider of providers | providerSearch:searchText" style="padding-top: 2px; padding-bottom: 2px">
+		<tr *ngFor="let provider of providers | providerSearch:searchText" style="padding-top: 2px; padding-bottom: 2px" (click)="onSelectProvider(provider)" style="cursor: pointer;">
+			
 			<td style="padding-right: 20px;">{{provider.npi}}</td>
 			<td style="padding-right: 20px;">{{provider.name}}</td>
 			<td style="padding-right: 20px;">{{provider.address}}</td>
+		
 		</tr>
 	</tbody>
 </table>
