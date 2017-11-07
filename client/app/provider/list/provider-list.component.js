@@ -1,22 +1,22 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute, Router, ParamMap} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'provider-detail',
-  templateUrl: 'app/provider/provider-detail.component.html'
+  selector: 'provider-list',
+  templateUrl: 'app/provider/list/provider-list.component.html'
 })
 
-class ProviderDetailComponent {
+class ProviderListComponent {
 
 	static get parameters() {
-		return [[ActivatedRoute],[Router]];
+		return [[Router]];
 	}
 
-	constructor(_route,_router) {
-		this._route = _route;
-		this._router = _router;
-		this.title = 'Provider Detail Component';
+	constructor(_router) {
 		
+		this._router = _router;
+		this.title = 'Provider List Component';
+		this.searchText = '';
 		this.providers = [
 			{
 				id: 1,
@@ -49,15 +49,12 @@ class ProviderDetailComponent {
 				address: '727 Tramway NE Albuquerque NM 87122'
 			}
 		];
-
-		this.id = this._route.snapshot.paramMap.get('id');
-		this.provider = this.providers.find((provider) => provider.id == this.id);
-		
 	}
 
-	goToProviderList() {
-		this._router.navigate(['/providers']);
+	onSelectProvider(provider) {
+		
+		this._router.navigate(['/provider',{id: provider.id}]);
 	}
 }
 
-export {ProviderDetailComponent};
+export {ProviderListComponent};

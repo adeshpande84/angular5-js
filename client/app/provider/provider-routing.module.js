@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {ProviderListComponent} from './provider-list.component';
-import {ProviderDetailComponent} from './provider-detail.component';
+import {ProviderListComponent} from './list/provider-list.component.js';
+import {ProviderDetailComponent} from './detail/provider-detail.component.js';
 
 const providerRoutes = [
 
