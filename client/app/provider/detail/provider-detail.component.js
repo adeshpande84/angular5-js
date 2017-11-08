@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ActivatedRoute, Router, ParamMap} from '@angular/router';
+import {ProviderService} from '../provider.service.js';
 
 @Component({
   selector: 'provider-detail',
@@ -9,50 +10,24 @@ import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 class ProviderDetailComponent {
 
 	static get parameters() {
-		return [[ActivatedRoute],[Router]];
+		return [[ActivatedRoute],[Router],[ProviderService]];
 	}
 
-	constructor(_route,_router) {
+	constructor(_route,_router,providerService) {
 		this._route = _route;
 		this._router = _router;
+		this.providerService = providerService;
+		
+	}
+
+	ngOnInit() {
 		this.title = 'Provider Detail Component';
 		
-		this.providers = [
-			{
-				id: 1,
-				npi: 'npi123',
-				name: 'Provider 1',
-				address: '123 Test NE Albuquerque NM 87113'
-			},
-			{
-				id: 2,
-				npi: 'npi123',
-				name: 'Provider 2',
-				address: '222 San Mateo NE Albuquerque NM 87109'
-			},
-			{
-				id: 3,
-				npi: 'npi110',
-				name: 'Provider 3',
-				address: '52 University Blvd NE Albuquerque NM 87102'
-			},
-			{
-				id: 4,
-				npi: 'npi162',
-				name: 'Provider 4',
-				address: '290 Alameda Albuquerque NM 87113'
-			},
-			{
-				id: 5,
-				npi: 'npi162',
-				name: 'Provider 1',
-				address: '727 Tramway NE Albuquerque NM 87122'
-			}
-		];
+		this._route.data.subscribe((data) => {
+			
+			this.provider = data.prov;
 
-		this.id = this._route.snapshot.paramMap.get('id');
-		this.provider = this.providers.find((provider) => provider.id == this.id);
-		
+		});
 	}
 
 	goToProviderList() {
